@@ -14,8 +14,8 @@ app.use(express.json());
 // CORS configuration with credentials support
 app.use(
   cors({
-    origin: "https://drugdoc-backend.onrender.com", // Replace with your frontend's URL
-    credentials: true, // Enable credentials (cookies)
+    // origin: "https://drugdoc-backend.onrender.com", // Replace with your frontend's URL
+    // credentials: true, // Enable credentials (cookies)
   })
 );
 
