@@ -1,26 +1,24 @@
-import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
-import Home from './pages/HomePage';
-import DiseaseSearch from './pages/DiseaseSearchPage';
-import DosageSafetyCheck from './pages/DosageSafetyCheckPage';
-import VideoCall from './pages/VideoCallPage';
-import ChatBot from './pages/ChatBotPage';
+import Home from "./pages/HomePage";
+import DiseaseSearch from "./pages/DiseaseSearchPage";
+import DosageSafetyCheck from "./pages/DosageSafetyCheckPage";
+import VideoCall from "./pages/VideoCallPage";
+import ChatBot from "./pages/ChatBotPage";
 
-import ContactUs from './pages/ContactUsPage';
-import SignUpPage from './pages/SignUpPage';
-import SignInPage from './pages/SignInPage';
-import PregnancyDescriptionPage from './pages/PregnancyPage';
-
-
+import ContactUs from "./pages/ContactUsPage";
+import SignUpPage from "./pages/SignUpPage";
+import SignInPage from "./pages/SignInPage";
+import PregnancyDescriptionPage from "./pages/PregnancyPage";
 
 const App = () => {
   const location = useLocation();
 
   // Define paths where Navbar and Footer should not be shown (e.g., SignUp, SignIn, DiseaseSearch, DosageSafetyCheck pages)
-  const hideElementsPaths = ['/', '/signin'];
+  const hideElementsPaths = ["/", "/signin"];
 
   // Check if the current path is in the list of paths that should hide Navbar and Footer
   const showNavbarAndFooter = !hideElementsPaths.includes(location.pathname);

@@ -102,7 +102,7 @@ const HeroSection = () => {
           <h2 className="object__intro-title text-xl">Navigate to:</h2>
           <ul>
             <li>
-              <a href="/diseasesearch" className="text-highlight">
+              <a href="/DiseaseSearch" className="text-highlight">
                 Disease Search
               </a>
             </li>

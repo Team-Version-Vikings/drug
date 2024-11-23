@@ -47,7 +47,7 @@ const Navbar = () => {
                 <NavLink
                   to={item.href || "#"}
                   className="px-2 py-2 rounded-md transition duration-200 hover:bg-gray-300 hover:text-black shadow-sm whitespace-nowrap"
-                  activeClassName="bg-gray-300 text-black"
+                  activeclassname="bg-gray-300 text-black"
                   style={{ fontFamily: "'Faculty Glyphic', sans-serif" }}
                   onClick={() =>
                     setActiveItem(index === activeItem ? null : index)
@@ -65,7 +65,7 @@ const Navbar = () => {
                           style={{
                             fontFamily: "'Faculty Glyphic', sans-serif",
                           }}
-                          activeClassName="bg-gray-300 text-black"
+                          activeclassname="bg-gray-300 text-black"
                         >
                           {subItem.label}
                         </NavLink>
@@ -116,7 +116,7 @@ const Navbar = () => {
                     to={item.href || "#"}
                     className="block px-4 py-2 rounded-md transition duration-200 hover:bg-gray-300 hover:text-black shadow-sm"
                     style={{ fontFamily: "'Faculty Glyphic', sans-serif" }}
-                    activeClassName="bg-gray-300 text-black"
+                    activeclassname="bg-gray-300 text-black"
                     onClick={() =>
                       setActiveItem(index === activeItem ? null : index)
                     }
@@ -134,7 +134,7 @@ const Navbar = () => {
                               fontFamily: "'Faculty Glyphic', sans-serif",
                               color: "white",
                             }}
-                            activeClassName="bg-gray-300 text-black"
+                            activeclassname="bg-gray-300 text-black"
                           >
                             {subItem.label}
                           </NavLink>

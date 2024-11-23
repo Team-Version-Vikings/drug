@@ -7,6 +7,13 @@ export default defineConfig({
     outDir: "dist",
   },
   server: {
+    proxy: {
+      "/diseasesearch": {
+        target: "http://localhost:5000",
+        changeOrigin: true,
+      },
+    },
+    port: 5173,
     historyApiFallback: true, // Ensures fallback to index.html
   },
 });

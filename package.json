@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "vite": "^5.4.11"
+  },
+  "dependencies": {
+    "nltk": "^0.0.1"
   }
 }

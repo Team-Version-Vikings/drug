@@ -13,17 +13,17 @@ import loginimage from "../assets/loginimage.png";
 
 export const navItems = [
   { label: "Home 🏠", href: "/home" },
-  { label: "Disease Search 🧟‍♂️", href: "/DiseaseSearch" },
-  { label: "Dosage Safety Check 🤒", href: "/DosageSafetyCheck" },
+  { label: "Disease Search 🧟‍♂️", href: "/diseasesearch" },
+  { label: "Dosage Safety Check 🤒", href: "/dosagesafetycheck" },
   { label: "Pregnancy Description  🤷‍♀️", href: "/pregnancydescription" },
   {
     label: "Consultation 😷",
     items: [
       { label: "Chatbot 🤖", href: "/chatbot" },
-      { label: "Video Call 💻", href: "/VideoCall" },
+      { label: "Video Call 💻", href: "/videocall" },
     ],
   },
-  { label: "Contact Us  ☎", href: "/ContactUs" },
+  { label: "Contact Us  ☎", href: "/contactus" },
   // { label: "LogOut", href: "/" },
 ];
 
