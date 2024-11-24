@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom"; // Import useNavigate
+import { NavLink, useNavigate } from "react-router-dom";
 import { navItems } from "../contents/index";
 import doctorLogo from "../assets/doctor14.png";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(null);
-  const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false); // state for the confirmation modal
-  const navigate = useNavigate(); // initialize useNavigate
+  const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false);
+  const navigate = useNavigate();
 
-  // Handle Logout confirmation
   const handleLogout = (confirm) => {
     if (confirm) {
-      // Perform any logout logic (e.g., clear tokens, etc.)
-      navigate("/signin"); // Redirect to the sign-in page
+      navigate("/signin");
     } else {
-      setShowLogoutConfirmation(false); // Close the modal if 'No'
+      setShowLogoutConfirmation(false);
     }
   };
 
@@ -27,6 +25,7 @@ const Navbar = () => {
       />
       <nav className="bg-gradient-to-r from-cyan-500 to-blue-500 p-4 shadow-lg">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center">
+          {/* Left-aligned logo and title */}
           <div className="flex items-center space-x-2">
             <img src={doctorLogo} alt="Doctor Logo" className="h-8 w-8" />
             <div className="text-white font-bold text-2xl">
@@ -40,8 +39,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex space-x-3 text-white font-normal ml-auto justify-end items-center">
+          {/* Right-aligned desktop navigation */}
+          <ul className="hidden md:flex space-x-3 text-white font-normal justify-end items-center">
             {navItems.map((item, index) => (
               <li key={index} className="relative group">
                 <NavLink
@@ -79,12 +78,13 @@ const Navbar = () => {
 
           {/* Logout Button */}
           <button
-            onClick={() => setShowLogoutConfirmation(true)} // Trigger the confirmation modal
+            onClick={() => setShowLogoutConfirmation(true)}
             className="ml-6 px-6 py-2 rounded-md transition duration-200 hover:bg-gray-300 hover:text-black shadow-sm text-white font-semibold"
           >
             Logout 🔓
           </button>
 
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-white focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
