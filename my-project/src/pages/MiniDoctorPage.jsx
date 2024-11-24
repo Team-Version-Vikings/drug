@@ -1,12 +1,12 @@
 import React from "react";
-import DoctorChat from "../components/DoctorChat";
+import MiniDoctor from "../components/MiniDoctor";
 
-const MiniDoctor = () => {
+const Minidoctor = () => {
   return (
     <div>
-      <DoctorChat />
+      <MiniDoctor />
     </div>
   );
 };
 
-export default MiniDoctor;
+export default Minidoctor;

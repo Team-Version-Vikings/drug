@@ -1,5 +1,5 @@
 import React from "react";
-import Team from "../components/Team";
+import TeamPage from "../components/Team";
 
 function Team() {
   return (

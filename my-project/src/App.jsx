@@ -15,7 +15,8 @@ import ContactUs from "./pages/ContactUsPage";
 import SignUpPage from "./pages/SignUpPage";
 import SignInPage from "./pages/SignInPage";
 import PregnancyDescriptionPage from "./pages/PregnancyPage";
-import TeamPage from "./pages/TeamPage";
+import Team from "./pages/TeamPage";
+import Minidoctor from "./pages/MiniDoctorPage";
 
 
 const App = () => {
@@ -61,9 +62,8 @@ const App = () => {
             path="/pregnancydescription"
             element={<PregnancyDescriptionPage />}
           />
-          <Route path="/team" element={<Team/>} />
-          
-          
+          <Route path="/team" element={<Team />} />
+          <Route path="/minidoctor" element={<Minidoctor />} />
         </Routes>
       </div>
 
