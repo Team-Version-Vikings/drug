@@ -24,12 +24,12 @@ body {
 
 .arrow {
     position: absolute;
-    bottom: 100px; /* Adjusted value to move it a bit up */
-    right: 20px; /* Adjusted value to move it a bit left */
+    bottom: 100px; 
+    right: 20px; 
     width: calc(60% - 200px);
     height: 30%;
     z-index: 2;
-    transform: translateX(50%) rotate(180deg); /* Move it to the right and rotate it 180 degrees */
+    transform: translateX(50%) rotate(180deg);
 }
 
 
@@ -89,22 +89,22 @@ body {
 }
 .arrow {
     position: absolute;
-    bottom: 30px; /* Adjusted value to move it a bit up */
-    right: 20px; /* Adjusted value to move it a bit left */
+    bottom: 30px; 
+    right: 20px; 
     width: calc(60% - 200px);
     height: 30%;
     z-index: 2;
-    transform: translateX(50%) rotate(180deg); /* Move it to the right and rotate it 180 degrees */
+    transform: translateX(50%) rotate(180deg); 
 }
 
 .arrow-left {
     position: absolute;
-    bottom: 250px; /* Same vertical position */
-    left: 20px; /* Adjusted value to move it a bit to the left */
+    bottom: 250px; 
+    left: 20px;
     width: calc(60% - 200px);
     height: 30%;
     z-index: 2;
-    transform: translateX(-50%) rotate(0deg); /* Move it to the left and no rotation */
+    transform: translateX(-50%) rotate(0deg); 
 }
 
 .arrow__body {

@@ -7,7 +7,7 @@ import doctorImage from "../assets/doctor16.png";
 const SignIn = ({ setIsLoggedIn }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState([]);
-  const [successMessage, setSuccessMessage] = useState(""); // Add successMessage state
+  const [successMessage, setSuccessMessage] = useState(""); 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -15,7 +15,7 @@ const SignIn = ({ setIsLoggedIn }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  // Form validation
+
   const validateForm = () => {
     const { email, password } = formData;
     const newErrors = [];
@@ -26,7 +26,7 @@ const SignIn = ({ setIsLoggedIn }) => {
     return newErrors.length === 0;
   };
 
-  // Handle form submission
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -39,12 +39,11 @@ const SignIn = ({ setIsLoggedIn }) => {
       );
 
       if (response.status === 200) {
-        // Store user in localStorage
+       
         localStorage.setItem("user", JSON.stringify(response.data.user));
 
-        // Set success message and redirect
         setSuccessMessage("Login successful!");
-        navigate("/home"); // Redirect to the home page
+        navigate("/home");
       } else {
         setErrors([
           response.data.message || "Sign-in failed. Please try again.",

@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import "../styles/VideoCall.css"; // Make sure to import the CSS file
-
+import "../styles/VideoCall.css"; 
 const VideoCall = () => {
   const videoFrameRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -12,7 +11,7 @@ const VideoCall = () => {
     }
   }, []);
 
-  // Function to handle iframe onLoad event to hide loading spinner
+ 
   const handleIframeLoad = () => {
     setIsLoading(false);
   };
@@ -31,7 +30,7 @@ const VideoCall = () => {
         position: "relative",
       }}
     >
-      {/* Custom Loader */}
+     
       {isLoading && (
         <div className="loader">
           <div className="loader-inner">
@@ -54,7 +53,7 @@ const VideoCall = () => {
         </div>
       )}
 
-      {/* Full-Screen Video Frame */}
+   
       <iframe
         ref={videoFrameRef}
         style={{

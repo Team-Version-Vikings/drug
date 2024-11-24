@@ -35,7 +35,7 @@ body {
     animation: typing 3s steps(22, end), blink 0.5s step-end infinite;
     white-space: nowrap;
     overflow: hidden;
-    display: inline-block; /* Keeps the cursor at the end of the text */
+    display: inline-block; 
     border-right: 2px solid;
   }
 }

@@ -40,7 +40,7 @@ const ContactUs = () => {
 
   return (
     <div className="max-w-7xl mx-auto mt-8 px-4 flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-8">
-      {/* Image Section - Hidden on mobile */}
+    
       <div className="w-full md:w-2/3  justify-center md:justify-start md:ml-8 hidden md:block">
         <img
           src={doctorImage}
@@ -49,14 +49,14 @@ const ContactUs = () => {
         />
       </div>
 
-      {/* Forms Section */}
+      
       <motion.div
         className="w-full md:w-3/4 grid grid-cols-1 md:grid-cols-2 gap-8"
         initial="hidden"
         animate="visible"
         variants={staggerAnimation}
       >
-        {/* Contact Form */}
+       
         <motion.div
           className="bg-white p-6 md:p-8 rounded-lg shadow-lg md:max-w-4xl w-full"
           variants={formAnimation}
@@ -128,7 +128,7 @@ const ContactUs = () => {
           </form>
         </motion.div>
 
-        {/* Address Section */}
+     
         <motion.div
           className="bg-white p-6 md:p-8 rounded-lg shadow-lg md:max-w-lg"
           variants={formAnimation}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import doctorImage from "../assets/doctor10.png"; // Adjust path if needed
+import doctorImage from "../assets/doctor10.png"; 
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import Stack from "@mui/material/Stack";
@@ -17,8 +17,8 @@ const DiseaseSearch = () => {
 
   const handleSearchSubmit = async (event) => {
     event.preventDefault();
-    setError(""); // Clear previous errors
-    setResults([]); // Clear previous results
+    setError("");
+    setResults([]); 
 
     if (!searchTerm) {
       setError("Please enter a search term.");
@@ -26,7 +26,7 @@ const DiseaseSearch = () => {
     }
 
     try {
-      // Make API call to Flask backend
+      
       const response = await axios.post(
         "http://localhost:8000/predict-disease",
         {
@@ -34,12 +34,12 @@ const DiseaseSearch = () => {
         }
       );
 
-      // Handle the response
-      setResults(response.data); // Update state with the results
+      
+      setResults(response.data); 
     } catch (err) {
-      // Handle errors
+     
       if (err.response && err.response.data.error) {
-        setError(err.response.data.error); // Backend error
+        setError(err.response.data.error); 
       } else {
         setError("An error occurred. Please try again.");
       }
@@ -51,19 +51,19 @@ const DiseaseSearch = () => {
       className="flex items-center p-4"
       style={{ fontFamily: "Poppins, sans-serif" }}
     >
-      {/* Left Section with Image */}
+     
       <div className="mr-4">
         <img src={doctorImage} alt="Doctor" className="w-64 max-w-full" />
       </div>
 
-      {/* Right Section with Search Form and Results */}
+    
       <aside className="flex-grow">
-        {/* Centering only the h2 and p */}
+        
         <div
           className="flex flex-col justify-center items-center"
           style={{ height: "50%" }}
         >
-          {/* Header */}
+          
           <h2
             className="text-4xl font-bold mb-4 text-black"
             style={{ fontFamily: "Host Grotesk, sans-serif" }}
@@ -76,7 +76,7 @@ const DiseaseSearch = () => {
           </p>
         </div>
 
-        {/* Form Section */}
+       
         <form onSubmit={handleSearchSubmit} className="mb-4">
           <div className="input-group">
             <input
@@ -87,7 +87,7 @@ const DiseaseSearch = () => {
               onChange={handleSearchChange}
             />
 
-            {/* Material UI Button with Search Icon */}
+           
             <Stack direction="row" spacing={2}>
               <Button
                 type="submit"
@@ -100,7 +100,7 @@ const DiseaseSearch = () => {
           </div>
         </form>
 
-        {/* Error Message */}
+       
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
         {/* Results Section */}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import doctorImage from "../assets/doctor2.png"; // Signup image on the left side
-import logoImage from "../assets/doctor6.jpeg"; // Logo image for Drug Doc
+import doctorImage from "../assets/doctor2.png"; 
+import logoImage from "../assets/doctor6.jpeg"; 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -67,7 +67,7 @@ const Signup = () => {
           "linear-gradient(to bottom right, skyblue, #00c6ff, #0072ff)",
       }}
     >
-      {/* Logo and Title at the Top Left Corner */}
+     
       <div className="absolute top-4 left-4 flex items-center space-x-4">
         <img
           src={logoImage}
@@ -77,7 +77,7 @@ const Signup = () => {
         <h1 className="text-black font-serif text-4xl font-bold">Drug Doc</h1>
       </div>
 
-      {/* Image on the left side (hidden on mobile screens) */}
+     
       <div className="lg:w-1/2 w-full h-full justify-center items-center hidden lg:block">
         <img
           src={doctorImage}
@@ -86,7 +86,7 @@ const Signup = () => {
         />
       </div>
 
-      {/* Signup form on the right side */}
+      
       <div className="lg:w-1/2 w-full max-w-lg p-6">
         <div className="text-center mb-6">
           <p className="text-lg text-black font-mono font-semibold">
@@ -176,7 +176,7 @@ const Signup = () => {
               />
             </div>
 
-            {/* Submit Button */}
+         
             <button
               type="submit"
               className="w-full py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md"

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Importing React Router's Link
-
+import { Link } from "react-router-dom"; 
 const ChatBot = () => {
   const [messages, setMessages] = useState([
     { sender: "bot", text: "Hi there! How can I assist you today?" },
@@ -15,7 +14,7 @@ const ChatBot = () => {
 
   const handleOptionClick = (option) => {
     setIsTyping(true);
-    setPreviousOptions(options); // Save the current options for "Back"
+    setPreviousOptions(options); 
     setOptions(null);
 
     setTimeout(() => {
@@ -75,7 +74,7 @@ const ChatBot = () => {
         );
         setOptions(["Back"]);
       } else if (option === "Back") {
-        setOptions(previousOptions); // Restore the previous options
+        setOptions(previousOptions); 
         addMessage("bot", "What would you like to do next?");
       } else {
         addMessage("bot", "Sorry, I didn't understand that.");

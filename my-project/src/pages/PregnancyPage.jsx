@@ -39,22 +39,27 @@ const PregnancyDescriptionPage = () => {
       setIsLoading(false);
     }
   };
+const renderValue = (value) => {
+  if (typeof value === "object" && value !== null) {
+    return (
+      <ul>
+        {Object.entries(value).map(([subKey, subValue]) => (
+          <li key={subKey}>
+            <strong>{subKey.replace(/_/g, " ")}:</strong>{" "}
+            {renderValue(subValue)}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+  return value || "Information not available";
+};
 
-  const renderValue = (value) => {
-    if (typeof value === "object" && value !== null) {
-      return (
-        <ul>
-          {Object.entries(value).map(([subKey, subValue]) => (
-            <li key={subKey}>
-              <strong>{subKey.replace(/_/g, " ")}:</strong>{" "}
-              {renderValue(subValue)}
-            </li>
-          ))}
-        </ul>
-      );
-    }
-    return value || "Information not available";
-  };
+const excludedKeys = [
+  "drug_class",
+  "pharmacology_description",
+  "therapeutic_class_description",
+];
 
   return (
     <div className="pregnancy-description-container">
@@ -113,18 +118,20 @@ const PregnancyDescriptionPage = () => {
           <div className="results-container">
             <h3>Results</h3>
             <div className="white-box">
-              {Object.entries(response).map(([key, value]) => (
-                <div className="info-item" key={key}>
-                  <h4>{key.replace(/_/g, " ").toUpperCase()}</h4>
-                  <div>{renderValue(value)}</div>
-                </div>
-              ))}
+              {Object.entries(response)
+                .filter(([key]) => !excludedKeys.includes(key)) // Exclude the specific keys
+                .map(([key, value]) => (
+                  <div className="info-item" key={key}>
+                    <h4>{key.replace(/_/g, " ").toUpperCase()}</h4>
+                    <div>{renderValue(value)}</div>
+                  </div>
+                ))}
             </div>
           </div>
         )}
       </div>
 
-      {/* Hide the image when the response is displayed */}
+      
       {!response && (
         <div className="right-side">
           <img src={doctorImage} alt="Doctor" className="doctor-image" />

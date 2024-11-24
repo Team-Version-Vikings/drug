@@ -3,9 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import ChatWidget from "./components/ChatWidget/ChatWidget"; // Import ChatWidget
-
-// Pages
+import ChatWidget from "./components/ChatWidget/ChatWidget"; 
 import Home from "./pages/HomePage";
 import DiseaseSearch from "./pages/DiseaseSearchPage";
 import DosageSafetyCheck from "./pages/DosageSafetyCheckPage";
@@ -15,27 +13,28 @@ import ContactUs from "./pages/ContactUsPage";
 import SignUpPage from "./pages/SignUpPage";
 import SignInPage from "./pages/SignInPage";
 import PregnancyDescriptionPage from "./pages/PregnancyPage";
-import TeamPage from "./pages/TeamPage";
+import Team from "./pages/TeamPage";
+import Minidoctor from "./pages/MiniDoctorPage";
 
 
 const App = () => {
   const location = useLocation();
 
-  // Paths where Navbar, Footer, or ChatWidget should not be shown
+  
   const hiddenPaths = ["/", "/signin"];
 
-  // Check if Navbar and Footer should be displayed
+ 
   const showNavbarAndFooter = !hiddenPaths.includes(location.pathname);
 
-  // Check if ChatWidget should be displayed
+
   const showChatWidget = !hiddenPaths.includes(location.pathname);
 
   return (
     <div className="font-sans bg-gray-100 flex flex-col min-h-screen overflow-hidden">
-      {/* Navbar */}
+      
       {showNavbarAndFooter && <Navbar />}
 
-      {/* Main Content Area */}
+     
       <div
         className="flex-grow overflow-hidden"
         style={{
@@ -46,11 +45,10 @@ const App = () => {
         }}
       >
         <Routes>
-          {/* Authentication Routes */}
+       
           <Route path="/" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
 
-          {/* Application Routes */}
           <Route path="/home" element={<Home />} />
           <Route path="/diseasesearch" element={<DiseaseSearch />} />
           <Route path="/dosagesafetycheck" element={<DosageSafetyCheck />} />
@@ -61,16 +59,15 @@ const App = () => {
             path="/pregnancydescription"
             element={<PregnancyDescriptionPage />}
           />
-          <Route path="/team" element={<Team/>} />
-          
-          
+          <Route path="/team" element={<Team />} />
+          <Route path="/minidoctor" element={<Minidoctor />} />
         </Routes>
       </div>
 
-      {/* Footer */}
+  
       {showNavbarAndFooter && <Footer />}
 
-      {/* Chat Widget */}
+      
       {showChatWidget && <ChatWidget />}
     </div>
   );

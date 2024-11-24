@@ -25,7 +25,7 @@ const Navbar = () => {
       />
       <nav className="bg-gradient-to-r from-cyan-500 to-blue-500 p-4 shadow-lg">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-          {/* Left-aligned logo and title */}
+         
           <div className="flex items-center space-x-2">
             <img src={doctorLogo} alt="Doctor Logo" className="h-8 w-8" />
             <div className="text-white font-bold text-2xl">
@@ -39,7 +39,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Right-aligned desktop navigation */}
+         
           <ul className="hidden md:flex space-x-3 text-white font-normal justify-end items-center">
             {navItems.map((item, index) => (
               <li key={index} className="relative group">
@@ -76,7 +76,7 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* Logout Button */}
+         
           <button
             onClick={() => setShowLogoutConfirmation(true)}
             className="ml-6 px-6 py-2 rounded-md transition duration-200 hover:bg-gray-300 hover:text-black shadow-sm text-white font-semibold"
@@ -84,7 +84,7 @@ const Navbar = () => {
             Logout 🔓
           </button>
 
-          {/* Mobile Menu Button */}
+          
           <button
             className="md:hidden text-white focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -106,7 +106,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+     
         {isMobileMenuOpen && (
           <div className="md:hidden bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-4">
             <ul className="text-center">
@@ -149,7 +149,7 @@ const Navbar = () => {
         )}
       </nav>
 
-      {/* Logout Confirmation Modal */}
+      
       {showLogoutConfirmation && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg text-center">

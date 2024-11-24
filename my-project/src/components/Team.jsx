@@ -1,75 +1,93 @@
 import React from "react";
 import "../styles/Team.css";
+import tejaImage from "../assets/teja1.jpg";
+import anandImage from "../assets/anand3.jpg"; 
 
 const TeamPage = () => {
   return (
     <div className="team-container">
       <h1 className="team-title">Meet The Team</h1>
       <p className="team-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud.
+        "Our team is dedicated to advancing healthcare innovation through
+        technology and collaboration. With expertise spanning pharmaceuticals,
+        research, and software development, we are committed to creating
+        impactful solutions that enhance lives. From designing user-friendly
+        systems to tackling complex challenges in drug management and delivery,
+        our shared goal is to drive positive change in the medical field.
+        Together, we combine knowledge, creativity, and dedication to build a
+        healthier future for all."
       </p>
       <p className="image-credit">
-        Image by{" "}
+        Github{" "}
         <a
-          href="https://www.freepik.com"
+          href="https://github.com/Team-Version-Vikings/drug"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Freepik
+          Repository
         </a>
       </p>
       <div className="team-members">
         <div className="team-member">
           <img
-            src="https://via.placeholder.com/150" // Replace with actual image URL
+            src={tejaImage} 
             alt="Bob Brown"
             className="member-photo"
           />
-          <h3 className="member-name">Bob Brown</h3>
-          <p className="member-role">Creative Leader</p>
+          <h3 className="member-name">Guna Teja Sarvan Patnaik</h3>
+          <p className="member-role">Machine learning enthusiast</p>
           <p className="member-bio">
-            Glavi amet ritnsl libero molestie ante ut fringilla purus eros quis
-            glavrid from dolor amet iquam lorem bibendum.
+            Tech stacks used: Python, TensorFlow , Machine learning ,Flask
           </p>
           <div className="social-icons">
-            <a href="#" className="icon-link">
+            <a href="https://x.com/gunateja10008" className="icon-link">
               🌐
             </a>
-            <a href="#" className="icon-link">
-              🐦
+            <a
+              href="https://github.com/GunaTeja777?tab=repositories"
+              className="icon-link"
+            >
+              🐦(Github)
             </a>
-            <a href="#" className="icon-link">
-              📷
+            <a
+              href="https://www.linkedin.com/in/guna-teja-sarvan-patnaik-0942a2275/"
+              className="icon-link"
+            >
+              📷(Linkedin)
             </a>
           </div>
         </div>
         <div className="team-member">
           <img
-            src="https://via.placeholder.com/150" // Replace with actual image URL
+            src={anandImage}
             alt="Mary Smith"
             className="member-photo"
           />
-          <h3 className="member-name">Mary Smith</h3>
-          <p className="member-role">Sales Manager</p>
+          <h3 className="member-name">Anand Bobba</h3>
+          <p className="member-role">Web Enthusiast </p>
           <p className="member-bio">
-            Glavi amet ritnsl libero molestie ante ut fringilla purus eros quis
-            glavrid from dolor amet iquam lorem bibendum.
+            Tech Stacks used: React, Node.js, Express.js,
+            MongoDB,Flask,Framer-motion,Tailwind.css,Material-UI,Bootstrap,
+            Socket.io
           </p>
           <div className="social-icons">
-            <a href="#" className="icon-link">
+            <a href="https://x.com/_anand11" className="icon-link">
               🌐
             </a>
-            <a href="#" className="icon-link">
-              🐦
+            <a href="https://github.com/anandbobba" className="icon-link">
+              🐦(Github)
             </a>
-            <a href="#" className="icon-link">
-              📷
+            <a
+              href="https://www.linkedin.com/in/anandbobba/"
+              className="icon-link"
+            >
+              📷(Linkedin)
             </a>
           </div>
         </div>
       </div>
+      <br></br>
+      <div >Supporters: Sharan Rai.K(Documentation),Vidhathri Bhat(PPT)</div>
     </div>
   );
 };
