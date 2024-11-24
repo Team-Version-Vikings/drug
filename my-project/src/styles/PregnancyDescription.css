@@ -209,3 +209,19 @@
   max-width: 100%;
   height: auto;
 }
+.white-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.info-item {
+  margin-bottom: 15px;
+}
+
+.info-item h4 {
+  margin-bottom: 5px;
+  color: #333;
+}

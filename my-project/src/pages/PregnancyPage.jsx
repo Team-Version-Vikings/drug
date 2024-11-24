@@ -112,7 +112,7 @@ const PregnancyDescriptionPage = () => {
         {response && (
           <div className="results-container">
             <h3>Results</h3>
-            <div className="info-section">
+            <div className="white-box">
               {Object.entries(response).map(([key, value]) => (
                 <div className="info-item" key={key}>
                   <h4>{key.replace(/_/g, " ").toUpperCase()}</h4>
@@ -124,9 +124,12 @@ const PregnancyDescriptionPage = () => {
         )}
       </div>
 
-      <div className="right-side">
-        <img src={doctorImage} alt="Doctor" className="doctor-image" />
-      </div>
+      {/* Hide the image when the response is displayed */}
+      {!response && (
+        <div className="right-side">
+          <img src={doctorImage} alt="Doctor" className="doctor-image" />
+        </div>
+      )}
     </div>
   );
 };
