@@ -6,6 +6,7 @@ const MiniDoctor = () => {
   const [input, setInput] = useState("");
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false); 
 
   const handleSubmit = async () => {
     if (!input) {
@@ -13,25 +14,28 @@ const MiniDoctor = () => {
       return;
     }
     setError(null);
-    try {
-      const response = await axios.post(
-        "http://localhost:8000/mini-doctor",
-        { conversations: input }, // Match Flask API's expected key
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+    setLoading(true);
 
-      if (response.status === 200) {
-        setResult(response.data); // Updated to handle Flask API's response structure
-      } else {
-        setError(response.data.error || "An error occurred.");
-      }
-    } catch (err) {
-      setError("Failed to fetch response. Please try again.");
-    }
+   try {
+     const response = await axios.post(
+       "http://localhost:8000/mini-doctor1",
+       { conversations: input },
+       {
+         headers: {
+           "Content-Type": "application/json",
+         },
+       }
+     );
+     setResult(response.data);
+   } catch (err) {
+     setLoading(false);
+     // Log the full error response
+     console.error("Full error:", err.response?.data || err);
+     setError(
+       err.response?.data?.error ||
+         "Failed to fetch response. Please try again."
+     );
+   }
   };
 
   return (
@@ -55,6 +59,8 @@ const MiniDoctor = () => {
           </button>
         </div>
         {error && <p style={styles.error}>{error}</p>}
+        {loading && <p style={styles.loading}>Loading...</p>}{" "}
+        {/* Added loading text */}
         {result && (
           <div style={styles.result}>
             <h2>Predicted Disease:</h2>
@@ -130,6 +136,10 @@ const styles = {
   },
   error: {
     color: "red",
+    marginTop: "10px",
+  },
+  loading: {
+    color: "#007BFF",
     marginTop: "10px",
   },
   result: {

@@ -20,25 +20,12 @@ def home():
 def page_not_found(e):
     """Handle 404 errors and redirect to /home."""
     return redirect("/home")
-
-try:
-    medical_data = pd.read_csv('./data/medical_conversations.csv')
-except FileNotFoundError as e:
-    raise FileNotFoundError(f"Error loading dataset: {str(e)}")
-
-# Load the model
-try:
-    with open('./minidoc.pkl', 'rb') as model_file1:
-       minidoc_model = pickle.load(model_file1)
-except FileNotFoundError as e:
-    raise FileNotFoundError(f"Error loading model: {str(e)}")
-
-
 # Load datasets with error handling
 try:
     madeby_me = pd.read_csv('./data/madeby_me.csv')
     dosage_data = pd.read_csv('./data/dosageByme.csv')
     pregnancy_data = pd.read_csv('./data/pregnentByme.csv')
+    medical_data = pd.read_csv('./data/medical_conversations.csv')
 except FileNotFoundError as e:
     raise FileNotFoundError(f"Error loading dataset: {str(e)}")
 
@@ -58,6 +45,10 @@ try:
         pregnancy_model = pickle.load(pregnancy_model_file)
     with open('./tfidf_vectorizer3.pkl', 'rb') as pregnancy_vectorizer_file:
         pregnancy_vectorizer = pickle.load(pregnancy_vectorizer_file)
+    with open('./minidoc.pkl', 'rb') as model_file1:
+        minidoc_model = pickle.load(model_file1)
+    with open('./tfidf_vectorizer7.pkl', 'rb') as vectorizer_file1:
+        vectorizer_file1 = pickle.load(vectorizer_file1)
 except FileNotFoundError as e:
     raise FileNotFoundError(f"Error loading model or vectorizer: {str(e)}")
 
@@ -149,32 +140,37 @@ def check_pregnancy():
     except Exception as e:
         return jsonify({'error': f'Error processing request: {str(e)}'}), 500
     
-@app.route('/mini-doctor', methods=['POST'])
+@app.route('/mini-doctor1', methods=['POST'])
 def predict_mini_doctor():
     """Predict disease based on conversations."""
     data = request.json
-    conversations = data.get('conversations')  # Get the conversation input from request
+    conversations = data.get('conversations')
 
     if not conversations:
         return jsonify({'error': 'conversation is required'}), 400
 
-    try:
-        # Ensure the input is in the correct format for the model
-        transformed_input = vectorizer.transform([conversations])  # Vectorize the input conversation
-        prediction = minidoc_model.predict(transformed_input)  # Predict the disease
+    try:   
+        print(f"Received conversation: {conversations}")     
+        transformed_input = vectorizer_file1.transform([conversations]) 
+        print(f"Transformed input shape: {transformed_input.shape}")
+        expected_features = 47579
+        if transformed_input.shape[1] != expected_features:
+            return jsonify({'error': f"Feature mismatch: expected {expected_features} features, got {transformed_input.shape[1]}"}), 400
+        prediction = minidoc_model.predict(transformed_input)
         predicted_disease = prediction[0]
-
-        # Retrieve details about the predicted disease from medical_data
+        print(f"Predicted disease: {predicted_disease}")
         result = medical_data[medical_data['disease'] == predicted_disease].to_dict(orient='records')
 
         if not result:
             return jsonify({'error': 'No matching data found for the predicted disease.'}), 404
 
-        # Return the predicted disease and its details
         return jsonify({'predicted_disease': predicted_disease, 'details': result})
 
     except Exception as e:
+        # Log the error for debugging
+        print(f"Error during prediction: {str(e)}")
         return jsonify({'error': str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
