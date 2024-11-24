@@ -1,0 +1,1 @@
+ minidoc_model
