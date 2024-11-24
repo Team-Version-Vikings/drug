@@ -13,6 +13,7 @@ import loginimage from "../assets/loginimage.png";
 
 export const navItems = [
   { label: "Home 🏠", href: "/home" },
+
   { label: "Disease Search 🧟‍♂️", href: "/diseasesearch" },
   { label: "Dosage Safety Check 🤒", href: "/dosagesafetycheck" },
   { label: "Pregnancy Description  🤷‍♀️", href: "/pregnancydescription" },
@@ -21,9 +22,11 @@ export const navItems = [
     items: [
       { label: "Chatbot 🤖", href: "/chatbot" },
       { label: "Video Call 💻", href: "/videocall" },
+      { label: "Mini Doctor 👨‍⚕️", href: "/minidoctor" },
     ],
   },
   { label: "Contact Us  ☎", href: "/contactus" },
+  { label: "Team 🏆 ", href: "/team" },
   // { label: "LogOut", href: "/" },
 ];
 
