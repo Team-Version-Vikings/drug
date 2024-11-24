@@ -28,7 +28,7 @@ const DiseaseSearch = () => {
     try {
       // Make API call to Flask backend
       const response = await axios.post(
-        "http://localhost:5000/predict-disease",
+        "http://localhost:8000/predict-disease",
         {
           reconstitution_description: searchTerm,
         }

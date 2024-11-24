@@ -22,7 +22,7 @@ const PregnancyDescriptionPage = () => {
       console.log("Submitting data:", data);
 
       const res = await axios.post(
-        "http://localhost:5000/check-pregnancy",
+        "http://localhost:8000/check-pregnancy",
         data
       );
       console.log("Response received:", res.data);
@@ -38,6 +38,22 @@ const PregnancyDescriptionPage = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const renderValue = (value) => {
+    if (typeof value === "object" && value !== null) {
+      return (
+        <ul>
+          {Object.entries(value).map(([subKey, subValue]) => (
+            <li key={subKey}>
+              <strong>{subKey.replace(/_/g, " ")}:</strong>{" "}
+              {renderValue(subValue)}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    return value || "Information not available";
   };
 
   return (
@@ -95,21 +111,15 @@ const PregnancyDescriptionPage = () => {
 
         {response && (
           <div className="results-container">
-            <h3>Result</h3>
-            <div className="info-item">
-              <h4>GENERIC NAME</h4>
-              <p>{response.generic_name || "Information not available"}</p>
+            <h3>Results</h3>
+            <div className="info-section">
+              {Object.entries(response).map(([key, value]) => (
+                <div className="info-item" key={key}>
+                  <h4>{key.replace(/_/g, " ").toUpperCase()}</h4>
+                  <div>{renderValue(value)}</div>
+                </div>
+              ))}
             </div>
-            <div className="info-item">
-              <h4>DOSAGE</h4>
-              <p>{response.dosage || "Information not available"}</p>
-            </div>
-            {response.warning && (
-              <div className="warning-message">
-                <h3>Warning</h3>
-                <p>{response.warning}</p>
-              </div>
-            )}
           </div>
         )}
       </div>

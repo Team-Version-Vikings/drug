@@ -13,17 +13,18 @@ const DosageSafetyCheck = () => {
   });
   const [profile, setProfile] = useState(null);
   const [showAdditionalFields, setShowAdditionalFields] = useState(false);
-  const [showProfileImage, setShowProfileImage] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    const validationRules = {
+      name: /^[a-zA-Z\s]*$/, // Allow only letters and spaces
+      age: /^\d{0,2}$/, // Allow only numbers up to 2 digits
+    };
 
-    // Input validation
-    if (name === "name" && /[^a-zA-Z\s]/.test(value)) return;
-    if (name === "age" && (/\D/.test(value) || value.length > 2)) return;
+    if (validationRules[name] && !validationRules[name].test(value)) return;
     setFormData({ ...formData, [name]: value });
   };
 
@@ -35,7 +36,6 @@ const DosageSafetyCheck = () => {
         age: formData.age,
         gender: formData.gender,
       });
-      setShowProfileImage(true);
       setShowAdditionalFields(true);
       setError(null);
       setResult(null);
@@ -44,33 +44,28 @@ const DosageSafetyCheck = () => {
 
   const handleDosageSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.generic_name || !formData.dosage) {
-      setError("Please fill in both drug name and dosage");
+    const { generic_name, dosage } = formData;
+    if (!generic_name || !dosage) {
+      setError("Please provide both drug name and dosage.");
       return;
     }
 
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.post("http://localhost:5000/check-dosage", {
-        generic_name: formData.generic_name,
-        dosage: formData.dosage,
+      const response = await axios.post("http://localhost:8000/check-dosage", {
+        generic_name,
+        dosage,
       });
       setResult(response.data);
     } catch (err) {
-      setError(
-        err.response?.data?.error ||
-          "An error occurred while checking dosage safety"
-      );
+      setError(err.response?.data?.error || "Error checking dosage safety.");
     } finally {
       setLoading(false);
     }
   };
 
-  const resetProfile = () => {
-    setProfile(null);
-    setShowProfileImage(false);
-    setShowAdditionalFields(false);
+  const resetForm = () => {
     setFormData({
       name: "",
       age: "",
@@ -78,6 +73,8 @@ const DosageSafetyCheck = () => {
       generic_name: "",
       dosage: "",
     });
+    setProfile(null);
+    setShowAdditionalFields(false);
     setResult(null);
     setError(null);
   };
@@ -87,7 +84,7 @@ const DosageSafetyCheck = () => {
       {/* Form Section */}
       <div className="w-full lg:w-1/2 bg-white p-6 rounded-lg shadow-lg mt-6">
         <h2
-          className="text-2xl font-bold mb-4 typing-effect"
+          className="text-2xl font-bold mb-4"
           style={{ fontFamily: "'Geist Mono', monospace" }}
         >
           Dosage Safety Check
@@ -176,6 +173,7 @@ const DosageSafetyCheck = () => {
         )}
       </div>
 
+      {/* Image Section */}
       {!result && (
         <div className="w-full lg:w-1/2 hidden lg:block">
           <img
@@ -195,7 +193,7 @@ const DosageSafetyCheck = () => {
               {JSON.stringify(result, null, 2)}
             </pre>
             <button
-              onClick={resetProfile}
+              onClick={resetForm}
               className="px-4 py-2 bg-red-500 text-white rounded-md mt-4 hover:bg-red-600 transition-colors"
             >
               Reset
