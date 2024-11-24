@@ -164,6 +164,7 @@ def mini_doctor():
         # Preprocess input
         sequences = tokenizer.texts_to_sequences([conversation])
         padded_sequences = pad_sequences(sequences, maxlen=200)
+        model = tf.keras.models.load_model("./lstm_text_classification_model.h5")
 
         # Predict using the loaded model
         prediction = model.predict(padded_sequences)
