@@ -1,1 +1,1 @@
-tokenizer
+ minidoc_model

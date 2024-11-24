@@ -9,14 +9,14 @@ const MiniDoctor = () => {
 
   const handleSubmit = async () => {
     if (!input) {
-      setError("Please enter your symptoms or conversation.");
+      setError("Please enter your symptoms or description.");
       return;
     }
     setError(null);
     try {
       const response = await axios.post(
         "http://localhost:8000/mini-doctor",
-        { conversation: input },
+        { conversations: input }, // Match Flask API's expected key
         {
           headers: {
             "Content-Type": "application/json",
@@ -25,7 +25,7 @@ const MiniDoctor = () => {
       );
 
       if (response.status === 200) {
-        setResult(response.data.prediction);
+        setResult(response.data); // Updated to handle Flask API's response structure
       } else {
         setError(response.data.error || "An error occurred.");
       }
@@ -39,12 +39,13 @@ const MiniDoctor = () => {
       <div style={styles.leftSection}>
         <h1 style={styles.title}>Mini Doctor</h1>
         <p style={styles.description}>
-          Your personal health companion. Share how you feel, and let us show the problem.
+          Your personal health companion. Share how you feel, and let us help
+          identify the issue.
         </p>
         <div style={styles.form}>
           <input
             type="text"
-            placeholder="Tell how you feel (health)"
+            placeholder="Describe your symptoms"
             style={styles.input}
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -54,7 +55,22 @@ const MiniDoctor = () => {
           </button>
         </div>
         {error && <p style={styles.error}>{error}</p>}
-        {result && <p style={styles.result}>Predicted Disease: {result}</p>}
+        {result && (
+          <div style={styles.result}>
+            <h2>Predicted Disease:</h2>
+            <p>{result.predicted_disease}</p>
+            {result.details && result.details.length > 0 && (
+              <div>
+                <h3>Additional Information:</h3>
+                <ul>
+                  {result.details.map((detail, index) => (
+                    <li key={index}>{JSON.stringify(detail)}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
       </div>
       <div style={styles.rightSection}>
         <img src={doctorImage} alt="Doctor Illustration" style={styles.image} />
@@ -117,9 +133,9 @@ const styles = {
     marginTop: "10px",
   },
   result: {
-    color: "#000", // Updated to black
-    marginTop: "10px",
+    marginTop: "20px",
     fontSize: "1.1em",
+    color: "#333",
   },
   rightSection: {
     flex: 1,

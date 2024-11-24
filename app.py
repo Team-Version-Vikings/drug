@@ -2,13 +2,6 @@ from flask import Flask, request, jsonify, redirect, render_template
 import pickle
 import pandas as pd
 from flask_cors import CORS
-import os
-import tensorflow as tf
-tf.get_logger().setLevel('ERROR')
-
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-
-os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
 app = Flask(__name__)
 CORS(app)
@@ -28,6 +21,19 @@ def page_not_found(e):
     """Handle 404 errors and redirect to /home."""
     return redirect("/home")
 
+try:
+    medical_data = pd.read_csv('./data/medical_conversations.csv')
+except FileNotFoundError as e:
+    raise FileNotFoundError(f"Error loading dataset: {str(e)}")
+
+# Load the model
+try:
+    with open('./minidoc.pkl', 'rb') as model_file1:
+       minidoc_model = pickle.load(model_file1)
+except FileNotFoundError as e:
+    raise FileNotFoundError(f"Error loading model: {str(e)}")
+
+
 # Load datasets with error handling
 try:
     madeby_me = pd.read_csv('./data/madeby_me.csv')
@@ -36,7 +42,7 @@ try:
 except FileNotFoundError as e:
     raise FileNotFoundError(f"Error loading dataset: {str(e)}")
 
-# Load models and vectorizers with error handling
+
 try:
     with open('./Model.pkl', 'rb') as model_file:
         disease_model = pickle.load(model_file)
@@ -142,38 +148,33 @@ def check_pregnancy():
 
     except Exception as e:
         return jsonify({'error': f'Error processing request: {str(e)}'}), 500
-
-try:
-    with open('./tokenizer7.pkl', 'rb') as tokenizer_file:
-        tokenizer = pickle.load(tokenizer_file)
-    medical_data = pd.read_csv("./data/medical_conversations.csv")
-  
-except FileNotFoundError as e:
-    raise FileNotFoundError(f"Error loading resources: {str(e)}")
-
-@app.route("/mini-doctor", methods=["POST"])
-def mini_doctor():
-    """Process user input and predict the disease."""
+    
+@app.route('/mini-doctor', methods=['POST'])
+def predict_mini_doctor():
+    """Predict disease based on conversations."""
     data = request.json
-    conversation = data.get("conversation")
+    conversations = data.get('conversations')  # Get the conversation input from request
 
-    if not conversation:
-        return jsonify({"error": "Conversation input is required"}), 400
+    if not conversations:
+        return jsonify({'error': 'conversation is required'}), 400
 
     try:
-        # Preprocess input
-        sequences = tokenizer.texts_to_sequences([conversation])
-        padded_sequences = pad_sequences(sequences, maxlen=200)
-        model = tf.keras.models.load_model("./lstm_text_classification_model.h5")
+        # Ensure the input is in the correct format for the model
+        transformed_input = vectorizer.transform([conversations])  # Vectorize the input conversation
+        prediction = minidoc_model.predict(transformed_input)  # Predict the disease
+        predicted_disease = prediction[0]
 
-        # Predict using the loaded model
-        prediction = model.predict(padded_sequences)
-        predicted_class = medical_data['disease'].iloc[prediction.argmax()]
+        # Retrieve details about the predicted disease from medical_data
+        result = medical_data[medical_data['disease'] == predicted_disease].to_dict(orient='records')
 
-        return jsonify({"prediction": predicted_class})
+        if not result:
+            return jsonify({'error': 'No matching data found for the predicted disease.'}), 404
+
+        # Return the predicted disease and its details
+        return jsonify({'predicted_disease': predicted_disease, 'details': result})
 
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
