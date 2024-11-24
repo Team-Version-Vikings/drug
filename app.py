@@ -20,7 +20,6 @@ def home():
 def page_not_found(e):
     """Handle 404 errors and redirect to /home."""
     return redirect("/home")
-# Load datasets with error handling
 try:
     madeby_me = pd.read_csv('./data/madeby_me.csv')
     dosage_data = pd.read_csv('./data/dosageByme.csv')
@@ -47,7 +46,7 @@ try:
         pregnancy_vectorizer = pickle.load(pregnancy_vectorizer_file)
     with open('./minidoc.pkl', 'rb') as model_file1:
         minidoc_model = pickle.load(model_file1)
-    with open('./tfidf_vectorizer7.pkl', 'rb') as vectorizer_file1:
+    with open('./tfidf_vectorizer8.pkl', 'rb') as vectorizer_file1:
         vectorizer_file1 = pickle.load(vectorizer_file1)
 except FileNotFoundError as e:
     raise FileNotFoundError(f"Error loading model or vectorizer: {str(e)}")

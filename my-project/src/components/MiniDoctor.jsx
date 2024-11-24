@@ -18,7 +18,7 @@ const MiniDoctor = () => {
 
    try {
      const response = await axios.post(
-       "http://localhost:8000/mini-doctor1",
+       "http://localhost:8000/mini-doctor",
        { conversations: input },
        {
          headers: {
@@ -29,7 +29,6 @@ const MiniDoctor = () => {
      setResult(response.data);
    } catch (err) {
      setLoading(false);
-     // Log the full error response
      console.error("Full error:", err.response?.data || err);
      setError(
        err.response?.data?.error ||
@@ -60,7 +59,7 @@ const MiniDoctor = () => {
         </div>
         {error && <p style={styles.error}>{error}</p>}
         {loading && <p style={styles.loading}>Loading...</p>}{" "}
-        {/* Added loading text */}
+       
         {result && (
           <div style={styles.result}>
             <h2>Predicted Disease:</h2>
