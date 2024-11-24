@@ -117,7 +117,7 @@ const styles = {
     marginTop: "10px",
   },
   result: {
-    color: "green",
+    color: "#000", // Updated to black
     marginTop: "10px",
     fontSize: "1.1em",
   },
