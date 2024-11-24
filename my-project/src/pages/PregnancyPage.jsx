@@ -131,7 +131,7 @@ const excludedKeys = [
         )}
       </div>
 
-      {/* Hide the image when the response is displayed */}
+      
       {!response && (
         <div className="right-side">
           <img src={doctorImage} alt="Doctor" className="doctor-image" />

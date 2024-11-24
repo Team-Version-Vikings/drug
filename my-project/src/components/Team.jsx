@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Team.css";
 import tejaImage from "../assets/teja1.jpg";
-import anandImage from "../assets/anand3.jpg"; // Import Anand's photo
+import anandImage from "../assets/anand3.jpg"; 
 
 const TeamPage = () => {
   return (
@@ -30,7 +30,7 @@ const TeamPage = () => {
       <div className="team-members">
         <div className="team-member">
           <img
-            src={tejaImage} // Using teja1.jpg as Bob Brown's photo
+            src={tejaImage} 
             alt="Bob Brown"
             className="member-photo"
           />
@@ -59,7 +59,7 @@ const TeamPage = () => {
         </div>
         <div className="team-member">
           <img
-            src={anandImage} // Using teja1.jpg as Mary Smith's photo
+            src={anandImage}
             alt="Mary Smith"
             className="member-photo"
           />

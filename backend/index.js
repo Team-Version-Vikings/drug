@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// CORS configuration with credentials support
+
 app.use(
   cors({
     // origin: "http://localhost:5173", // Replace with your frontend's URL
@@ -35,15 +35,15 @@ app.use(
       mongoUrl: process.env.MONGO_URI,
     }),
     cookie: {
-      maxAge: 24 * 60 * 60 * 1000, // 1 day
-      secure: false, // Set to true if using HTTPS in production
-      httpOnly: true, // Prevents JavaScript access to cookies
-      sameSite: "lax", // Ensures the cookie is sent with cross-origin requests
+      maxAge: 24 * 60 * 60 * 1000, 
+      secure: false, 
+      httpOnly: true, 
+      sameSite: "lax",
     },
   })
 );
 
-// Sign-up route
+
 app.post("/signup", async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -64,7 +64,7 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-// Sign-in route
+
 app.post("/signin", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -91,7 +91,7 @@ app.post("/signin", async (req, res) => {
   }
 });
 
-// Server setup
+
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });

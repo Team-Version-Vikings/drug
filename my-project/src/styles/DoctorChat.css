@@ -1,18 +1,18 @@
-/* General Styling */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f0f4f8;
 }
 
-/* Header Section */
+
 .header {
   text-align: center;
   padding: 20px;
-  color: #333; /* Neutral dark text */
+  color: #333; 
   font-size: 28px;
   font-weight: bold;
-  border-bottom: 1px solid #ddd; /* Light border for separation */
+  border-bottom: 1px solid #ddd; 
 }
 
 .typewriter {
@@ -28,7 +28,7 @@ body {
     width: 0;
   }
   to {
-    width: 10ch; /* Adjust to the length of the title */
+    width: 10ch; 
   }
 }
 
@@ -41,20 +41,20 @@ body {
   }
 }
 
-/* Main Container */
+
 .chat-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  height: calc(100vh - 100px); /* Full height minus header height */
+  height: calc(100vh - 100px); 
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   box-sizing: border-box;
 }
 
-/* Chat Box */
+
 .chat-box {
   flex: 1.5;
   background-color: #f9f9f9;
@@ -65,7 +65,7 @@ body {
   margin-top: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
-  max-height: calc(100vh - 140px); /* Adjust for header and padding */
+  max-height: calc(100vh - 140px); 
 }
 
 .doctor-message,
@@ -79,7 +79,7 @@ body {
   border-radius: 10px;
   max-width: 80%;
   font-size: 16px;
-  margin-left: auto; /* Move to the right */
+  margin-left: auto; 
 }
 
 .user-message p {
@@ -91,7 +91,7 @@ body {
   align-self: flex-end;
 }
 
-/* Doctor Avatar in Chat Box */
+
 .doctor-avatar {
   width: 90px;
   height: 90px;
@@ -103,7 +103,7 @@ body {
   height: 100%;
 }
 
-/* User Input */
+
 .user-input {
   margin-top: 20px;
   display: flex;
@@ -134,7 +134,6 @@ body {
   background-color: #45a049;
 }
 
-/* Doctor Full Image */
 .doctor-side-image {
   flex: 2;
   display: flex;

@@ -29,29 +29,29 @@ const MiniDoctor = () => {
 const styles = {
   container: {
     display: "flex",
-    alignItems: "flex-start", // Align items to the top
+    alignItems: "flex-start", 
     justifyContent: "space-between",
     padding: "20px",
-    fontFamily: "'Poppins', sans-serif", // Use Poppins as the default font
+    fontFamily: "'Poppins', sans-serif",
   },
   leftSection: {
     flex: 1,
     marginRight: "40px",
-    marginTop: "50px", // Adjust vertical position
+    marginTop: "50px",
   },
   title: {
     fontSize: "2.5em",
     color: "#333",
     marginBottom: "10px",
-    fontWeight: "bold", // Make the title bold
-    fontFamily: "'Poppins', sans-serif", // Apply Poppins font
+    fontWeight: "bold",
+    fontFamily: "'Poppins', sans-serif", 
   },
   description: {
     fontSize: "1.2em",
     color: "#555",
     marginBottom: "20px",
-    fontWeight: "600", // Semi-bold for description
-    fontFamily: "'Poppins', sans-serif", // Apply Poppins font
+    fontWeight: "600", 
+    fontFamily: "'Poppins', sans-serif", 
   },
   form: {
     display: "flex",
@@ -65,13 +65,13 @@ const styles = {
     outline: "none",
     fontSize: "1em",
     marginRight: "10px",
-    backgroundColor: "#333", // Background color for input
-    color: "#fff", // Text color in the input field
+    backgroundColor: "#333", 
+    color: "#fff",
   },
-  // Pseudo-element for placeholder styling
+ 
   "::placeholder": {
-    color: "#fff", // Placeholder text color
-    opacity: "0.7", // Adjust opacity if needed
+    color: "#fff", 
+    opacity: "0.7", 
   },
   submitButton: {
     padding: "10px 20px",

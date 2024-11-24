@@ -20,8 +20,8 @@ const DosageSafetyCheck = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     const validationRules = {
-      name: /^[a-zA-Z\s]*$/, // Allow only letters and spaces
-      age: /^\d{0,2}$/, // Allow only numbers up to 2 digits
+      name: /^[a-zA-Z\s]*$/, 
+      age: /^\d{0,2}$/, 
     };
 
     if (validationRules[name] && !validationRules[name].test(value)) return;
@@ -173,7 +173,7 @@ const DosageSafetyCheck = () => {
         )}
       </div>
 
-      {/* Image Section */}
+      
       {!result && (
         <div className="w-full lg:w-1/2 hidden lg:block">
           <img
@@ -184,7 +184,7 @@ const DosageSafetyCheck = () => {
         </div>
       )}
 
-      {/* Result Modal */}
+     
       {result && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg w-3/4 h-3/4 overflow-auto">

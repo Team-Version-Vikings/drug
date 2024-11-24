@@ -84,7 +84,7 @@
     top: 35px;
 }
 
-/* Spinner animation */
+
 @keyframes spin {
     0%, 15% {
         transform: rotate(0);
