@@ -96,7 +96,6 @@ This project is an AI-driven healthcare solution designed to assist users with d
 ## Contributions
 
 ### Top Contributors:
-### Top Contributors:
 <p align="center">
   <a href="https://github.com/GunaTeja777">
     <img src="https://avatars.githubusercontent.com/u/99100703?s=64&v=4" alt="GunaTeja777" width="50" style="border-radius:50%; margin: 10px;">
