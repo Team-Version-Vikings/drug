@@ -96,6 +96,7 @@ This project is an AI-driven healthcare solution designed to assist users with d
 ## Contributions
 
 ### Top Contributors:
+### Top Contributors:
 <p align="center">
   <a href="https://github.com/GunaTeja777">
     <img src="https://avatars.githubusercontent.com/u/99100703?s=64&v=4" alt="GunaTeja777" width="50" style="border-radius:50%; margin: 10px;">
@@ -107,6 +108,20 @@ This project is an AI-driven healthcare solution designed to assist users with d
     <img src="https://avatars.githubusercontent.com/u/89713575?s=64&v=4" alt="sharanraik06" width="50" style="border-radius:50%; margin: 10px;">
   </a>
 </p>
+<p align="center">
+  <a href="https://github.com/GunaTeja777">
+    <img src="https://avatars.githubusercontent.com/u/99100703?s=64&v=4" alt="GunaTeja777" width="50" style="border-radius:50%; margin: 10px;">
+  </a>
+  <a href="https://github.com/anandbobba">
+    <img src="https://avatars.githubusercontent.com/u/123456?s=64&v=4" alt="anandbobba" width="50" style="border-radius:50%; margin: 10px;">
+  </a>
+  <a href="https://github.com/sharanraik06">
+    <img src="https://avatars.githubusercontent.com/u/89713575?s=64&v=4" alt="sharanraik06" width="50" style="border-radius:50%; margin: 10px;">
+  </a>
+</p>
+
+
+
 
 - **Model Development**: Built and fine-tuned machine learning models for disease prediction, dosage safety checks, pregnancy safety, and simulated doctor-patient interactions.  
 - **Backend Integration**: Designed Flask API endpoints for efficient data communication.  
