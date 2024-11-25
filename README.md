@@ -96,12 +96,7 @@ This project is an AI-driven healthcare solution designed to assist users with d
 ## Contributions
 
 ### Top Contributors:
-<p align="center">
-  <img src="https://avatars.githubusercontent.com/u/123456?s=40&v=4" alt="contributor1" style="border-radius:50%"> 
-  <img src="https://avatars.githubusercontent.com/u/654321?s=40&v=4" alt="contributor2" style="border-radius:50%"> 
-  <img src="https://avatars.githubusercontent.com/u/112233?s=40&v=4" alt="contributor3" style="border-radius:50%"> 
-  <img src="https://avatars.githubusercontent.com/u/445566?s=40&v=4" alt="contributor4" style="border-radius:50%"> 
-</p>
+<p align="center"> <img src="https://avatars.githubusercontent.com/u/99100703?s=40&v=4" alt="GunaTeja777" style="border-radius:50%"> <img src="https://avatars.githubusercontent.com/u/123456?s=40&v=4" alt="anandbobba" style="border-radius:50%"> <img src="https://avatars.githubusercontent.com/u/89713575?s=40&v=4" alt="sharanraik06" style="border-radius:50%"> </p>
 
 - **Model Development**: Built and fine-tuned machine learning models for disease prediction, dosage safety checks, pregnancy safety, and simulated doctor-patient interactions.  
 - **Backend Integration**: Designed Flask API endpoints for efficient data communication.  
