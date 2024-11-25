@@ -122,8 +122,3 @@ The **Medicine Interaction Checker and Mini Doctor Model** bridges the gap betwe
 
 ---
 
-## Getting Started
-
-1. Clone the repository:  
-   ```bash
-   git clone <repository_url>
