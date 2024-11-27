@@ -170,6 +170,6 @@ def predict_mini_doctor():
         print(f"Error during prediction: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
-
+#ggf
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
