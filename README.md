@@ -114,7 +114,7 @@ This project is an AI-driven healthcare solution designed to assist users with d
 
 ## Conclusion
 
-The **Medicine Interaction Checker and Mini Doctor Model** bridges the gap between complex medical data and user-friendly accessibility. With robust drug recommendations and conversational AI, it empowers users to make informed healthcare decisions, promoting a safer and more efficient healthcare experience. This project is a significant step towards leveraging AI for personalized and accessible healthcare solutions.
+The **Medicine Interaction Checker and Mini Doctor Model** bridges the gap between complex medical data and user-friendly accessibility. With robust drug recommendations and conversational AI, it empowers users to make informed healthcare decisions, promoting a safer and more efficient healthcare experience. This project is a significant step towards leveraging AI for personalized and accessible healthcare solutions..
 
 ---
 
